@@ -82,18 +82,19 @@ class LinkedList(object):
 
 myLL = LinkedList()
 
+print("Inserting nodes to linked list")
 myLL.insert_node(10)
 myLL.insert_node(20)
-myLL.insert_node(20)
-myLL.insert_node(20)
+myLL.insert_node(50)
 myLL.insert_node(30)
+myLL.insert_node(20)
 myLL.insert_node(50)
 myLL.insert_node(50)
-myLL.insert_node(50)
-myLL.insert_node(60)
+myLL.insert_node(20)
+myLL.insert_node(10)
 myLL.insert_node(60)
 
-print("Traversing the original linked list")
+print("Traversing the linked list")
 myLL.traversal()
 
 print("Deleting duplicate data")
