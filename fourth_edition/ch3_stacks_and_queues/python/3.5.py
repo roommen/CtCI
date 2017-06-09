@@ -8,78 +8,76 @@ stack2 = list()
 max_ = 10
 
 
-def push(val):
-    global stack1, stack2
-    if len(stack1) == max_:
+class MyQueue(object):
+    def push(self, val):
+        global stack1, stack2
+        if len(stack1) == max_:
+            if len(stack2) == 0:
+                for x in stack1[::-1]:
+                    stack2.append(x)
+                stack1 = []
+            else:
+                return "Queue Full!"
+        stack1.append(val)
+
+    def pop(self):
+        global stack1, stack2
         if len(stack2) == 0:
-            for x in stack1[::-1]:
-                stack2.append(x)
-            stack1 = []
-        else:
-            return "Queue Full!"
-    stack1.append(val)
+            if len(stack1) > 0:
+                stack2 = stack1
+                stack1 = []
+            else:
+                return "Queue Empty"
+        return stack2.pop(-1)
+
+    def queue(self, val):
+        # Call the push
+        global stack1, stack2
+        self.push(val)
+        # print(stack1, stack2)
+
+    def dequeue(self):
+        # Call the pop
+        global stack1, stack2
+        pop_out = self.pop()
+        # print(stack1, stack2)
+        return pop_out
+
+mq = MyQueue()
 
 
-def pop():
-    global stack1, stack2
-    if len(stack2) == 0:
-        if len(stack1) > 0:
-            stack2 = stack1
-            stack1 = []
-        else:
-            return "Queue Empty"
-    return stack2.pop(-1)
+mq.queue(10)
+mq.queue(20)
+mq.queue(30)
+mq.queue(40)
+mq.queue(50)
+mq.queue(60)
+mq.queue(70)
+mq.queue(80)
+mq.queue(90)
+mq.queue(100)
+mq.queue(110)
+mq.queue(120)
+mq.queue(130)
 
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
 
-def queue(val):
-    # Call the push
-    global stack1, stack2
-    push(val)
-    # print(stack1, stack2)
+mq.queue(140)
 
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
+print(mq.dequeue())
 
-def dequeue():
-    # Call the pop
-    global stack1, stack2
-    pop_out = pop()
-    # print(stack1, stack2)
-    return pop_out
-
-
-queue(10)
-queue(20)
-queue(30)
-queue(40)
-queue(50)
-queue(60)
-queue(70)
-queue(80)
-queue(90)
-queue(100)
-queue(110)
-queue(120)
-queue(130)
-
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-
-queue(140)
-
-print(dequeue())
-print(dequeue())
-print(dequeue())
-print(dequeue())
-
-queue(150)
-
-
+mq.queue(150)
 
